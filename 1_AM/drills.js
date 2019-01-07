@@ -54,6 +54,7 @@ const unzip = arr => {
 const shiftRight = (str, num) => {
   // TODO - write a function which shifts a string `num` characters to the right
   // Example = shiftThree("Hello") === "lloHe"
+  return [str.splice(0, num), str.splice(num,)].join();
 };
 
 const announceDate = () => {
