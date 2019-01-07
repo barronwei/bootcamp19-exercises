@@ -3,29 +3,52 @@ const assert = require("assert");
 // Feel free to look things up online!
 
 const tokenize = str => {
-  // TODO - write a function which converts a multi-word string into an array of words
+  return str.split(" ");
 };
 
 const reverse = str => {
-  // TODO - write a function which reverses the string
+  return str.split("").reverse().join("");
 };
 
 const uniqueOnes = arr => {
-  // TODO - write a function which returns the inputted array without duplicate elements
+  let store = [];
+  arr.forEach(function(one) {
+    if (!store.includes(one)) {
+      store.push(one);
+    }
+  });
+  return store;
 };
 
 const factorial = num => {
-  // TODO - write a function which returns the factorial of a positive integer
+  let store = 1;
+  for (let a = num; a > 0; a--) {
+    store *= a;
+  }
+  return store;
 };
 
 const zip = (arr1, arr2) => {
-  // TODO - write a function which combines two arrays into an array of 2-element arrays and returns -1
-  // if the two arrays are of unequal length
-  // Example: zip([1, 2, 3], [5, 3, 1]) === [[1, 5], [2, 3], [3, 1]]
+  if (arr1.length === arr2.length) {
+    let arr = [];
+    arr1.forEach(function(item) {
+      arr[arr1.indexOf(item)] = [item, arr2[arr1.indexOf(item)]];
+    });
+    return arr;
+  }
+  else {
+    return -1;
+  }
 };
 
 const unzip = arr => {
-  // TODO - Write a function which does the opposite of `zip()`
+  let arr1 = [];
+  let arr2 = [];
+  arr.forEach(function(item) {
+    arr1.push(arr[arr.indexOf(item)][0]);
+    arr2.push(arr[arr.indexOf(item)][1]);
+  });
+  return [arr1, arr2];
 };
 
 const shiftRight = (str, num) => {
@@ -40,7 +63,12 @@ const announceDate = () => {
 
 // Write tests here:
 
+// console.log(tokenize("dab on me"));
+// console.log(uniqueOnes([1, 2, 2, "3", "3"]));
+// console.log(zip([1, 2, 3], [2, 3, 4]));
+// console.log(unzip([[1, 2], [2, 3], [3, 4]]));
 assert(1 < 2);
 assert(1 + 2 === 3);
 assert([2, 3][0] === 2);
-// asssert (reverse("3df") === "fd3")
+assert (reverse("3df") === "fd3");
+assert(40320 == factorial(8));
