@@ -10,12 +10,12 @@ const hasFalsyValue = obj => {
     }
     else {
       if (!key) {
-        change = 0;
+        change = 1;
       }
     }
     });
   }
-  let change = 1;
+  let change = 0;
   check(obj)
   return !!change
 };
