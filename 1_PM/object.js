@@ -3,35 +3,34 @@
 // HINT: recursion may help here
 
 const hasFalsyValue = obj => {
-  const fun = el => {
-    if (typeof el === 'object') {
-      return Object.values(el).reduce(fun);
+  const check = (objr) => { 
+    Object.values(objr).forEach((key) => {
+    if (typeof key === 'object') {
+      check(key);
     }
     else {
-      return (el);
-    }
-  }
-  if (typeof obj === 'object') {
-    let x = 0;
-    for (o in Object.values(obj)) {
-      if (!fun(o)) {
-        x = 1;
-        console.log(x)
+      if (!key) {
+        change = 0;
       }
     }
-    if (x) {
-      return false;
-    }
+    });
   }
-  else {
-    return false;
-  }
+  let change = 1;
+  check(obj)
+  return !!change
 };
 
-const obj = {
+const meek = {
   name: "dab",
   red: "hold",
-  do: 0,
+  do: {
+    damn: "dab",
+    troll: "ran",
+    woah: {
+      obr: "",
+      foo: "woops",
+    }
+  }
 }
 
-console.log(hasFalsyValue(obj))
+console.log(hasFalsyValue(meek));

@@ -52,9 +52,7 @@ const unzip = arr => {
 };
 
 const shiftRight = (str, num) => {
-  // TODO - write a function which shifts a string `num` characters to the right
-  // Example = shiftThree("Hello") === "lloHe"
-  return [str.splice(0, num), str.splice(num,)].join();
+  return str.split("").slice(num,).concat(str.split("").slice(0, num)).join("");
 };
 
 const announceDate = () => {
@@ -73,3 +71,4 @@ assert(1 + 2 === 3);
 assert([2, 3][0] === 2);
 assert (reverse("3df") === "fd3");
 assert(40320 == factorial(8));
+assert("lohel" === shiftRight("hello", 3));
