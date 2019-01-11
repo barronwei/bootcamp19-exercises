@@ -1,10 +1,16 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import Welcome from "../../components/Welcome";
+import Form from "../../containers/Form/";
 
 class Home extends Component {
   render() {
     // replace this with a new container to contain your form!
-    return <Welcome />;
+    return (
+      <Fragment>
+        <Welcome />
+        <Form />
+      </Fragment>
+    )
   }
 }
 
